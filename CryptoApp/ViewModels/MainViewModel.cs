@@ -22,7 +22,7 @@ namespace CryptoApp.ViewModels
 
         public MainViewModel()
         {
-            _=LoadData();
+            _ = LoadData();
         }
 
         private async Task LoadData()

@@ -14,7 +14,7 @@
     </Page.DataContext>
 
     <Grid>
-        <ListView ItemsSource="{Binding Currencies}" Margin="20">
+        <ListView ItemsSource="{Binding Currencies}" Margin="20" SelectionChanged="ListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
