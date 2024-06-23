@@ -18,5 +18,12 @@ namespace CryptoApp.Views
                 DataContext = currency;
             }
         }
+        private void BackButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            if (Frame.CanGoBack)
+            {
+                Frame.GoBack();
+            }
+        }
     }
 }

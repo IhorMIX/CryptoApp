@@ -10,7 +10,8 @@
 
     <Grid Padding="20">
         <StackPanel>
-            <TextBlock Text="{Binding Name}" FontSize="24" FontWeight="Bold" Margin="0,0,0,10"/>
+            <Button Content="Back" Click="BackButton_Click" Margin="0,0,0,20"/>
+            <TextBlock Text="{Binding Name}" FontSize="24" FontWeight="Bold" Margin="0,0,0,0"/>
             <TextBlock Text="{Binding Symbol}" FontSize="18" Margin="0,0,0,10"/>
             <TextBlock Text="Price (USD):" FontWeight="Bold"/>
             <TextBlock Text="{Binding PriceUsd}" Margin="0,0,0,10"/>
