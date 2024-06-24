@@ -14,12 +14,29 @@
     </Page.DataContext>
 
     <Grid>
-        <ListView ItemsSource="{Binding Currencies}" Margin="20" SelectionChanged="ListView_SelectionChanged">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="20">
+            <TextBlock Text="CryptoApp" FontSize="24" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding SearchTerm, Mode=TwoWay}" PlaceholderText="Enter currency name or code"/>
+            <Button Content="Search" Command="{Binding SearchCommand}" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        
+        <ListView Grid.Row="1" ItemsSource="{Binding Currencies}" Margin="20" SelectionChanged="ListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Name}" FontSize="20" />
-                    </StackPanel>
+                    <Grid Margin="0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Name}" FontSize="20" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding Symbol}" FontSize="16" Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

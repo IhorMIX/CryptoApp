@@ -24,7 +24,7 @@
                     <DataTemplate>
                         <StackPanel>
                             <TextBlock Text="{Binding ExchangeId}" FontWeight="Bold"/>
-                            <TextBlock FontWeight="Bold">
+                            <TextBlock>
                                 <Run Text="{Binding priceUsd}"/>
                                 <Run Text="{Binding QuoteSymbol}"/>
                             </TextBlock>

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using CryptoApp.Models;
@@ -14,7 +16,15 @@ namespace CryptoApp.Services
         {
             _httpClient = new HttpClient();
         }
+        public async Task<Currency> GetCurrencyByNameOrCodeAsync(string searchTerm)
+        {
+            var url = $"https://api.coincap.io/v2/assets";
+            var response = await _httpClient.GetStringAsync(url);
+            var data = JsonConvert.DeserializeObject<CoinCapResponse>(response);
 
+            return data.Data.FirstOrDefault(c => c.Name.Equals(searchTerm, StringComparison.OrdinalIgnoreCase) ||
+                                                  c.Symbol.Equals(searchTerm, StringComparison.OrdinalIgnoreCase));
+        }
         public async Task<List<Currency>> GetTopCurrenciesAsync(int limit = 10)
         {
             var url = $"https://api.coincap.io/v2/assets?limit={limit}";
