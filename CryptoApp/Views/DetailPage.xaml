@@ -2,7 +2,6 @@
     x:Class="CryptoApp.Views.DetailPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:CryptoApp.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -11,12 +10,28 @@
     <Grid Padding="20">
         <StackPanel>
             <Button Content="Back" Click="BackButton_Click" Margin="0,0,0,20"/>
-            <TextBlock Text="{Binding Name}" FontSize="24" FontWeight="Bold" Margin="0,0,0,0"/>
+            <TextBlock Text="{Binding Name}" FontSize="24" FontWeight="Bold" Margin="0,0,0,10"/>
             <TextBlock Text="{Binding Symbol}" FontSize="18" Margin="0,0,0,10"/>
             <TextBlock Text="Price (USD):" FontWeight="Bold"/>
             <TextBlock Text="{Binding PriceUsd}" Margin="0,0,0,10"/>
-            <!--<TextBlock Text="Price Change:" FontWeight="Bold"/>
-            <TextBlock Text="{Binding PriceChange}" Margin="0,0,0,10"/>-->
+            <TextBlock Text="Volume (24Hr):" FontWeight="Bold"/>
+            <TextBlock Text="{Binding VolumeUsd24Hr}" Margin="0,0,0,10"/>
+            <TextBlock Text="Price Change (24Hr):" FontWeight="Bold"/>
+            <TextBlock Text="{Binding ChangePercent24Hr}" Margin="0,0,0,10"/>
+            <TextBlock Text="Markets:" FontWeight="Bold" Margin="0,20,0,10"/>
+            <ItemsControl ItemsSource="{Binding Markets}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding ExchangeId}" FontWeight="Bold"/>
+                            <TextBlock FontWeight="Bold">
+                                <Run Text="{Binding priceUsd}"/>
+                                <Run Text="{Binding QuoteSymbol}"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </StackPanel>
     </Grid>
 </Page>

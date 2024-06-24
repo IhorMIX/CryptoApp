@@ -8,6 +8,9 @@ namespace CryptoApp.Models
         public string Name { get; set; }
         public string Symbol { get; set; }
         public string PriceUsd { get; set; }
+        public string VolumeUsd24Hr { get; set; }
+        public string ChangePercent24Hr { get; set; }
+        public List<Market> Markets { get; set; }
 
     }
 }

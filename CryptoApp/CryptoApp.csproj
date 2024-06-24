@@ -120,6 +120,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Currency.cs" />
+    <Compile Include="Models\Market.cs" />
     <Compile Include="Services\CryptoService.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\DetailPage.xaml.cs">
