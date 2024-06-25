@@ -1,6 +1,7 @@
 ﻿using Windows.UI.Xaml.Controls;
 using CryptoApp.Models;
 using CryptoApp.Views;
+using Windows.UI.Xaml;
 
 namespace CryptoApp
 {
@@ -10,7 +11,15 @@ namespace CryptoApp
         {
             this.InitializeComponent();
         }
-
+        private void DarkThemeButton_Click(object sender, RoutedEventArgs e)
+        {
+            App.ThemeManager.LoadTheme(ThemeManager.DarkThemePath);
+        }
+            
+        private void LightThemeButton_Click(object sender, RoutedEventArgs e)
+        {
+            App.ThemeManager.LoadTheme(ThemeManager.LightThemePath);
+        }
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count > 0)
