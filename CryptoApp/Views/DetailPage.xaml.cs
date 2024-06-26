@@ -1,5 +1,7 @@
 ﻿using Windows.UI.Xaml.Controls;
 using CryptoApp.Models;
+using Windows.UI.Xaml;
+using CryptoApp.ViewModels;
 
 namespace CryptoApp.Views
 {
@@ -25,5 +27,17 @@ namespace CryptoApp.Views
                 Frame.GoBack();
             }
         }
+        private void SetEnglishLanguage_Click(object sender, RoutedEventArgs e)
+        {
+            var localizationViewModel = (LocalizationViewModel)this.Resources["LocalizationViewModel"];
+            localizationViewModel.UpdateLanguage("en-US");
+        }
+
+        private void SetUkrainianLanguage_Click(object sender, RoutedEventArgs e)
+        {
+            var localizationViewModel = (LocalizationViewModel)this.Resources["LocalizationViewModel"];
+            localizationViewModel.UpdateLanguage("uk-UA");
+        }
+
     }
 }

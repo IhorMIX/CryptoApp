@@ -4,21 +4,41 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:CryptoApp.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <viewModels:LocalizationViewModel x:Key="LocalizationViewModel" />
+
+        <Style x:Key="LocalizedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAccentBrush}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="CornerRadius" Value="5" />
+        </Style>
+    </Page.Resources>
+
     <Grid Padding="20">
         <StackPanel>
-            <Button Content="Back" Click="BackButton_Click" Margin="0,0,0,20"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="EN" Click="SetEnglishLanguage_Click" Style="{StaticResource LocalizedButtonStyle}" />
+                <Button Content="UK" Click="SetUkrainianLanguage_Click" Style="{StaticResource LocalizedButtonStyle}" />
+            </StackPanel>
+
+            <Button Content="{Binding Back, Source={StaticResource LocalizationViewModel}}" Click="BackButton_Click" Style="{StaticResource LocalizedButtonStyle}" Margin="0,20,0,20"/>
+
             <TextBlock Text="{Binding Name}" FontSize="24" FontWeight="Bold" Margin="0,0,0,10"/>
             <TextBlock Text="{Binding Symbol}" FontSize="18" Margin="0,0,0,10"/>
-            <TextBlock Text="Price (USD):" FontWeight="Bold"/>
+            <TextBlock Text="{Binding PriceUsd, Source={StaticResource LocalizationViewModel}}" FontWeight="Bold"/>
             <TextBlock Text="{Binding PriceUsd}" Margin="0,0,0,10"/>
-            <TextBlock Text="Volume (24Hr):" FontWeight="Bold"/>
+            <TextBlock Text="{Binding VolumeUsd24Hr, Source={StaticResource LocalizationViewModel}}" FontWeight="Bold"/>
             <TextBlock Text="{Binding VolumeUsd24Hr}" Margin="0,0,0,10"/>
-            <TextBlock Text="Price Change (24Hr):" FontWeight="Bold"/>
+            <TextBlock Text="{Binding ChangePercent24Hr, Source={StaticResource LocalizationViewModel}}" FontWeight="Bold"/>
             <TextBlock Text="{Binding ChangePercent24Hr}" Margin="0,0,0,10"/>
-            <TextBlock Text="Markets:" FontWeight="Bold" Margin="0,20,0,10"/>
+            <TextBlock Text="{Binding Markets, Source={StaticResource LocalizationViewModel}}" FontWeight="Bold" Margin="0,20,0,10"/>
             <ItemsControl ItemsSource="{Binding Markets}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>

@@ -13,14 +13,17 @@
     </Page.DataContext>
 
     <Page.Resources>
+        <viewModels:LocalizationViewModel x:Key="LocalizationViewModel" />
         <Style x:Key="ButtonStyle" TargetType="Button">
-            <Setter Property="binding:BackgroundBindingHelper.Background" Value="ChromeBrush" />
-            <Setter Property="binding:ForegroundBindingHelper.Foreground" Value="ForegroundBrush" />
-            <Setter Property="Margin" Value="0,12,0,0" />
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="MinWidth" Value="120"/>
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAccentBrush}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="MinWidth" Value="120" />
+            <Setter Property="MinHeight" Value="32" />
+            <Setter Property="CornerRadius" Value="5" />
         </Style>
     </Page.Resources>
 
@@ -29,13 +32,15 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
+
         <StackPanel Grid.Row="0" Margin="20,20,20,10" Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock Text="CryptoApp" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding SearchTerm, Mode=TwoWay}" PlaceholderText="Enter currency name or code" Width="200" Margin="0,0,10,0" VerticalAlignment="Center"/>
-            <Button Content="Search" Command="{Binding SearchCommand}" Style="{StaticResource ButtonStyle}" Margin="0,0,10,0" VerticalAlignment="Center"/>
-            <Button Content="Dark theme" Style="{StaticResource ButtonStyle}" Click="DarkThemeButton_Click" Margin="5"/>
-            <Button Content="Light Theme" Style="{StaticResource ButtonStyle}" Click="LightThemeButton_Click" Margin="5"/>
+            <TextBox Text="{Binding SearchTerm, Mode=TwoWay}" PlaceholderText="{Binding SearchPlaceholder, Source={StaticResource LocalizationViewModel}}" Width="200" Margin="0,0,10,0" VerticalAlignment="Center"/>
+            <Button Content="{Binding SearchButton, Source={StaticResource LocalizationViewModel}}" Command="{Binding SearchCommand}" Style="{StaticResource ButtonStyle}" Margin="0,0,10,0" VerticalAlignment="Center"/>
+            <Button Content="{Binding DarkThemeButton, Source={StaticResource LocalizationViewModel}}" Style="{StaticResource ButtonStyle}" Click="DarkThemeButton_Click" Margin="5"/>
+            <Button Content="{Binding LightThemeButton, Source={StaticResource LocalizationViewModel}}" Style="{StaticResource ButtonStyle}" Click="LightThemeButton_Click" Margin="5"/>
+            <Button Content="EN" Style="{StaticResource ButtonStyle}" Click="SetEnglishLanguage_Click" Margin="5"/>
+            <Button Content="UK" Style="{StaticResource ButtonStyle}" Click="SetUkrainianLanguage_Click" Margin="5"/>
         </StackPanel>
 
         <ListView Grid.Row="1" ItemsSource="{Binding Currencies}" Margin="20" SelectionChanged="ListView_SelectionChanged">
