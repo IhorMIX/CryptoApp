@@ -125,8 +125,12 @@
     <Compile Include="Models\Market.cs" />
     <Compile Include="Services\CryptoService.cs" />
     <Compile Include="ThemeManager.cs" />
+    <Compile Include="ViewModels\CurrencyConverterViewModel.cs" />
     <Compile Include="ViewModels\LocalizationViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\CurrencyConverterPage.xaml.cs">
+      <DependentUpon>CurrencyConverterPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailPage.xaml.cs">
       <DependentUpon>DetailPage.xaml</DependentUpon>
     </Compile>
@@ -160,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Theme.Light.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CurrencyConverterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

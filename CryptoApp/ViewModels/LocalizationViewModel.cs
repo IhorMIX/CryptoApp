@@ -25,6 +25,16 @@ namespace CryptoApp.ViewModels
         public string VolumeUsd24Hr => _resourceLoader.GetString("VolumeUsd24Hr");
         public string ChangePercent24Hr => _resourceLoader.GetString("ChangePercent24Hr");
         public string Markets => _resourceLoader.GetString("Markets");
+        public string Converter => _resourceLoader.GetString("Converter");
+
+        public string ConverterTitle => _resourceLoader.GetString("ConverterTitle");
+        public string ConvertButton => _resourceLoader.GetString("ConvertButton");
+        public string AmountPlaceholder => _resourceLoader.GetString("AmountPlaceholder");
+        public string FromCurrencyHeader => _resourceLoader.GetString("FromCurrencyHeader");
+        public string ToCurrencyHeader => _resourceLoader.GetString("ToCurrencyHeader");
+        public string Name => _resourceLoader.GetString("Name");
+        public string Result => _resourceLoader.GetString("Result");
+
         public void UpdateLanguage(string languageCode)
         {
             ApplicationLanguages.PrimaryLanguageOverride = languageCode;

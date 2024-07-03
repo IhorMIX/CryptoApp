@@ -33,10 +33,17 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Margin="20,20,20,10" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="0" Margin="20,20,20,10" Orientation="Horizontal" HorizontalAlignment="Left">
             <TextBlock Text="CryptoApp" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding SearchTerm, Mode=TwoWay}" PlaceholderText="{Binding SearchPlaceholder, Source={StaticResource LocalizationViewModel}}" Width="200" Margin="0,0,10,0" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding SearchTerm, Mode=TwoWay}" PlaceholderText="{Binding SearchPlaceholder, Source={StaticResource LocalizationViewModel}}" Width="250" Margin="0,0,10,0" VerticalAlignment="Center"/>
             <Button Content="{Binding SearchButton, Source={StaticResource LocalizationViewModel}}" Command="{Binding SearchCommand}" Style="{StaticResource ButtonStyle}" Margin="0,0,10,0" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Margin="20,20,20,10" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="{Binding Converter, Source={StaticResource LocalizationViewModel}}" Style="{StaticResource ButtonStyle}" Click="OnNavigateToConverterPage" Margin="5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Margin="20,20,20,10" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="{Binding DarkThemeButton, Source={StaticResource LocalizationViewModel}}" Style="{StaticResource ButtonStyle}" Click="DarkThemeButton_Click" Margin="5"/>
             <Button Content="{Binding LightThemeButton, Source={StaticResource LocalizationViewModel}}" Style="{StaticResource ButtonStyle}" Click="LightThemeButton_Click" Margin="5"/>
             <Button Content="EN" Style="{StaticResource ButtonStyle}" Click="SetEnglishLanguage_Click" Margin="5"/>

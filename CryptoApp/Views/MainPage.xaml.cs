@@ -21,7 +21,10 @@ namespace CryptoApp
         {
             base.OnNavigatedTo(e);
         }
-
+        private void OnNavigateToConverterPage(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(CurrencyConverterPage));
+        }
         private void DarkThemeButton_Click(object sender, RoutedEventArgs e)
         {
             var themeManager = (Application.Current.Resources["ThemeManager"] as ThemeManager);

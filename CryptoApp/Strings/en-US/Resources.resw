@@ -117,14 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AmountPlaceholder" xml:space="preserve">
+    <value>Amount</value>
+  </data>
   <data name="Back" xml:space="preserve">
     <value>Back</value>
   </data>
   <data name="ChangePercent24Hr" xml:space="preserve">
     <value>Price Change (24Hr)</value>
   </data>
+  <data name="ConvertButton" xml:space="preserve">
+    <value>Convert</value>
+  </data>
+  <data name="Converter" xml:space="preserve">
+    <value>Converter</value>
+  </data>
+  <data name="ConverterTitle" xml:space="preserve">
+    <value>Currency Converter</value>
+  </data>
   <data name="DarkThemeButton" xml:space="preserve">
     <value>Dark theme</value>
+  </data>
+  <data name="FromCurrencyHeader" xml:space="preserve">
+    <value>From Currency</value>
   </data>
   <data name="LightThemeButton" xml:space="preserve">
     <value>Light Theme</value>
@@ -138,11 +153,17 @@
   <data name="PriceUsd" xml:space="preserve">
     <value>Price (USD)</value>
   </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
   <data name="SearchButton" xml:space="preserve">
     <value>Search</value>
   </data>
   <data name="SearchPlaceholder" xml:space="preserve">
     <value>Enter currency name or code</value>
+  </data>
+  <data name="ToCurrencyHeader" xml:space="preserve">
+    <value>To Currency</value>
   </data>
   <data name="VolumeUsd24Hr" xml:space="preserve">
     <value>Volume (24Hr)</value>

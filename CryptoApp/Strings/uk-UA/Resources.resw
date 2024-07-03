@@ -117,14 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AmountPlaceholder" xml:space="preserve">
+    <value>Кількість</value>
+  </data>
   <data name="Back" xml:space="preserve">
     <value>Назад</value>
   </data>
   <data name="ChangePercent24Hr" xml:space="preserve">
     <value>Зміна ціни (24 год)</value>
   </data>
+  <data name="ConvertButton" xml:space="preserve">
+    <value>Конвертувати </value>
+  </data>
+  <data name="Converter" xml:space="preserve">
+    <value>Конвертатор</value>
+  </data>
+  <data name="ConverterTitle" xml:space="preserve">
+    <value>Конвертатор крипти</value>
+  </data>
   <data name="DarkThemeButton" xml:space="preserve">
     <value>Темна тема</value>
+  </data>
+  <data name="FromCurrencyHeader" xml:space="preserve">
+    <value>З криптовалюти</value>
   </data>
   <data name="LightThemeButton" xml:space="preserve">
     <value>Світла тема</value>
@@ -138,11 +153,17 @@
   <data name="PriceUsd" xml:space="preserve">
     <value>Ціна (USD)</value>
   </data>
+  <data name="Result" xml:space="preserve">
+    <value>Результат</value>
+  </data>
   <data name="SearchButton" xml:space="preserve">
     <value>Пошук</value>
   </data>
   <data name="SearchPlaceholder" xml:space="preserve">
     <value>Введіть назву або код валюти</value>
+  </data>
+  <data name="ToCurrencyHeader" xml:space="preserve">
+    <value>В криптовалюту</value>
   </data>
   <data name="VolumeUsd24Hr" xml:space="preserve">
     <value>Обсяг (24 год)</value>

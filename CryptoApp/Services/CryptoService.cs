@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using CryptoApp.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace CryptoApp.Services
 {
@@ -39,6 +40,39 @@ namespace CryptoApp.Services
             return data.Data;
         }
 
+        public async Task<decimal> GetConversionRateAsync(string fromCurrencySymbol, string toCurrencySymbol)
+        {
+            var fromCurrencyId = await GetCurrencyIdBySymbolAsync(fromCurrencySymbol);
+            var toCurrencyId = await GetCurrencyIdBySymbolAsync(toCurrencySymbol);
+
+            if (fromCurrencyId == null || toCurrencyId == null)
+            {
+                throw new Exception("One of the currency symbols could not be found.");
+            }
+
+            var url = $"https://api.coincap.io/v2/assets/{fromCurrencyId}";
+            var response = await _httpClient.GetStringAsync(url);
+            var data = JObject.Parse(response);
+            var fromRateUsd = data["data"]["priceUsd"].Value<decimal>();
+
+            url = $"https://api.coincap.io/v2/assets/{toCurrencyId}";
+            response = await _httpClient.GetStringAsync(url);
+            data = JObject.Parse(response);
+            var toRateUsd = data["data"]["priceUsd"].Value<decimal>();
+
+            return fromRateUsd / toRateUsd;
+        }
+        private async Task<string> GetCurrencyIdBySymbolAsync(string currencySymbol)
+        {
+            var url = $"https://api.coincap.io/v2/assets?search={currencySymbol}";
+            var response = await _httpClient.GetStringAsync(url);
+            var data = JObject.Parse(response);
+
+            var currency = data["data"]
+                .FirstOrDefault(c => c["symbol"].Value<string>().Equals(currencySymbol, StringComparison.OrdinalIgnoreCase));
+
+            return currency?["id"]?.Value<string>();
+        }
         private async Task<List<Market>> GetCurrencyMarketsAsync(string currencyId, int limit = 10)
         {
             var url = $"https://api.coincap.io/v2/assets/{currencyId}/markets?limit={limit}";
